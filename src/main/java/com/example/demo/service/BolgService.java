@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,5 +20,10 @@ public class BolgService {
 
     public List<Article> findAll(){
         return blogRepository.findAll();
+    }
+
+    public Article findById(long id){
+        return blogRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("not found : "+id));
     }
 }
