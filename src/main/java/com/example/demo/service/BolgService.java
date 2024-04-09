@@ -37,4 +37,8 @@ public class BolgService {
 
         return article;
     }
+
+    public void delete(long id){
+        blogRepository.deleteById(id);
+    }
 }
